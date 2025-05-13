@@ -1,0 +1,73 @@
+body {
+	min-width: 320px !important;
+	width: 100% !important;
+	background-color: #42484f !important;
+}
+main body html{
+	overflow-y: hidden;
+}
+h2{
+	color: #000000 !important;
+	font-size: 32pt !important;
+	margin-top: 10px !important;
+}
+
+html {
+	width:100%;
+	margin: 0px; 
+	padding: 0px;
+}
+
+.modal-dialog{
+	min-width: 50% !important;
+	margin-top: 25% !important;
+}
+
+.modal-content{
+	min-width: 90% !important;
+	background-color: #363837 !important;
+	width: 60% !important;
+	margin-left: 5%;
+}
+
+a{
+	color: #929496 !important;
+}
+
+#btn-register{
+	color: #000000 !important;
+	background-color: #69c999 !important;
+}
+
+#btn-consult{
+	background-color: #608ebf !important;
+	color: #000000 !important;
+}
+
+#footer{
+ position: fixed;
+ left: 0;
+ bottom: 0;
+ width: 100%;
+ text-align: center;
+}
+
+@media (min-width: 720px) {
+	.modal-dialog{
+		margin-top: 15% !important;
+	}
+}
+@media (min-width: 920px) {
+
+	.modal-dialog{
+		min-width: 100% !important;
+		margin-right: auto !important; 
+		margin-left: auto !important;
+		margin-top: 10% !important;
+	}
+
+	.modal-content{
+		width: 100% !important;
+		margin-left: auto;
+	}
+}
