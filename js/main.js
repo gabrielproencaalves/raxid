@@ -1,7 +1,7 @@
 import fetchPage from "./components/fetchPage.js";
 
 const routes = {
-  "/": { file: "./view/home.html", element: "main", script: ["./js/home.js"] },
+  "/raixd": { file: "./view/home.html", element: "main", script: ["./js/home.js"] },
   "/register": { file: "./view/register.html", element: "main", script: ["./js/register.js"] },
   "/analistic": { file: "./view/analistic.html", element: "main", script: ["./js/analistic.js"] }
 };
