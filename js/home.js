@@ -1,4 +1,4 @@
-import fetchPage from "./components/fetchPage.js";
+import router from "./router.js";
 
 $(document).ready(function(e){
 	
@@ -6,7 +6,7 @@ $(document).ready(function(e){
 
 	$("#btn-register").on("click", function(e){
 		e.preventDefault();
-		window.location.replace(url + "/register");
+		router('/register')
 	});
 
 	$("#btn-consult").on("click", function(e){
