@@ -11,12 +11,16 @@
 	<body>
 
 		<main>
-			<h2 class="h1 mb-1 fw-normal text-center"> RAXID </h2>
-			<div class="modal-dialog mt-4">
+			
+			<h2 class="h1 mt-3 fw-normal text-center"> .-------. </h2>
+			<h2 class="h1 fw-normal text-center"> | Raixd | </h2>
+			<h2 class="h1 mt-3 fw-normal text-center"> '-------' </h2>
+
+			<div class="modal-dialog" id="home">
 				<div class="modal-content shadow">
 					<div class="d-flex flex-column justify-content-center modal-body p-5">
 						<button type="submit" id="btn-register" data-bs-toggle="modal" data-bs-target="#registerToggle" class="btn btn-success mb-2" >Register</button>
-						<button type="submit" id="btn-consult" class="btn btn-info">Consult</button>
+						<button type="submit" id="btn-consult" data-bs-toggle="modal" data-bs-target="#analisticToggle" class="btn btn-info">Consult</button>
 					</div>
 				</div>
 			</div>
@@ -35,34 +39,129 @@
 
 			<!-- Modal Register -->
 			<div class="modal fade" id="registerToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			  <div class="modal-dialog">
+			  <div class="modal-dialog modal-fullscreen">
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <h1 class="modal-title fs-5" id="staticBackdropLabel">Registro de Despesas</h1>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
 			      <div class="modal-body">
-							<div class="d-flex flex-column justify-content-center modal-body p-5">
-								<input id="name" type="text" class="form-control mb-5" placeholder="Nome ou apelido"> 	
-								<div class="row g-3 mb-5">
-									<div class="col">
-										<input id="name" type="text" class="form-control" aria-label="Data" placeholder="Data"> 
+							<div class="d-flex flex-column justify-content-center p-4">
+								<form id="form-register">
+									<input id="name" type="text" class="form-control mb-5" placeholder="Nome ou apelido"> 	
+									<div class="row g-3 mb-5">
+										<div class="col">
+											<input id="date" type="text" class="form-control" aria-label="Data" placeholder="Data"> 
+										</div>
+										<div class="col">
+											<input id="value" type="text" placeholder="Valor" class="form-control" aria-label="Valor"> 
+										</div>
 									</div>
-									<div class="col">
-										<input id="name" type="text" placeholder="Valor" class="form-control" aria-label="Valor"> 
-									</div>
+								</form>
+							</div>
+			      </div>
+			      <div class="modal-footer align-items-center">
+							<button type="button" id="btn-save" class="btn btn-success" data-bs-dismiss="modal">Salvar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		<!-- Modal Register END -->
+
+		</div>
+
+		<div id="modalAnalistic">
+
+		<!-- Modal Analistic -->
+			<div class="modal fade" id="analisticToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-fullscreen">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h1 class="modal-title fs-5" id="staticBackdropLabel">Analise de Despesas</h1>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+							<div class="d-flex flex-column justify-content-center">
+								<table class="table table-bordered table-hover table-dark table-sm">
+									<thead class="thead-dark">
+  								  <tr>
+  								    <th scope="col">Viajante</th>
+  								    <th scope="col">A pagar</th>
+  								    <th scope="col">A receber</th>
+  								  </tr>
+  								</thead>
+  								<tbody>
+  								  <tr>
+  								    <td>Mark</td>
+  								    <td class="text-danger" >R$ 90</td>
+  								    <td >R$ 0</td>
+  								  </tr>
+  								  <tr>
+  								    <td>Jacob</td>
+  								    <td class="text-danger" >R$ 100</td>
+  								    <td>R$ 0</td>
+  								  </tr>
+  								  <tr>
+  								    <td>Larry</td>
+  								    <td>R$ 0</td>
+  								    <td class="text-success">R$ 190</td>
+  								  </tr>
+  								</tbody>
+								</table>
+								<div class="collapse" id="collapseExample">
+								  <div class="card card-body">
+
+										<h5> Custos totais </h5>
+										<table class="table table-bordered table-hover table-dark table-sm">
+											<thead class="thead-dark">
+  										  <tr>
+  										    <th scope="col">Viajante</th>
+  										    <th scope="col">Gasto</th>
+  										    <th scope="col">Diferenca</th>
+													<th scope="col">A pagar</th>
+  								    		<th scope="col">A receber</th>
+  										  </tr>
+  										</thead>
+  										<tbody>
+  										  <tr>
+  										    <td>Mark</td>
+  										    <td>R$ 300</td>
+  										    <td class="text-danger">R$ 90</td>
+													<td class="text-danger" >R$ 90</td>
+  								    		<td >R$ 0</td>
+  										  </tr>
+  										  <tr>
+  										    <td>Jacob</td>
+  										    <td>R$ 200</td>
+  										    <td class="text-danger" >R$ 100</td>
+													<td class="text-danger" >R$ 100</td>
+  								    		<td>R$ 0</td>
+  										  </tr>
+  										  <tr>
+  										    <td>Larry</td>
+  										    <td>R$ 590</td>
+  										    <td>R$ 0</td>
+													<td>R$ 0</td>
+  								    		<td class="text-success">R$ 190</td>
+  										  </tr>
+  										</tbody>
+										</table>
+								  </div>
 								</div>
 							</div>
 			      </div>
 			      <div class="modal-footer align-items-center">
 			        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Salvar</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Contestar</button>
 			      </div>
 			    </div>
 			  </div>
 			</div>
+		<!-- Modal Analistic END -->
 
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+		<script type="module" src="./js/home.js"></script>
 	</body>
 </html>
