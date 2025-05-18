@@ -1,5 +1,4 @@
 body {
-	min-width: 320px !important;
 	width: 100% !important;
 	background-color: #42484f !important;
 }
@@ -9,7 +8,6 @@ main body html{
 h2{
 	color: #000000 !important;
 	font-size: 32pt !important;
-	margin-top: 10px !important;
 }
 
 html {
@@ -20,14 +18,33 @@ html {
 
 .modal-dialog{
 	min-width: 50% !important;
-	margin-top: 25% !important;
+	margin-top: 10% !important;
+}
+.modal-title {
+	color: white !important;
 }
 
-.modal-content{
-	min-width: 90% !important;
+button .btn-close {
+/* 	--bs-btn-close-bg: url() */
+}
+
+.modal-body .card-body{
+	margin-top: 20px !important;
+	padding: 0% !important;
+}
+
+table {
+	margin-bottom: 0px !important;
+}
+
+.modal-content{	
 	background-color: #363837 !important;
+}
+
+main .modal-content{
+	min-width: 60% !important;
 	width: 60% !important;
-	margin-left: 5%;
+	margin-left: 20% !important;
 }
 
 a{
@@ -52,22 +69,14 @@ a{
  text-align: center;
 }
 
+#registerToggle {
+	width: 80% !important;
+	margin-left: 10% !important;
+}
+#registerToggle .modal-content {
+}
+
 @media (min-width: 720px) {
 	.modal-dialog{
-		margin-top: 15% !important;
-	}
-}
-@media (min-width: 920px) {
-
-	.modal-dialog{
-		min-width: 100% !important;
-		margin-right: auto !important; 
-		margin-left: auto !important;
-		margin-top: 10% !important;
-	}
-
-	.modal-content{
-		width: 100% !important;
-		margin-left: auto;
 	}
 }
