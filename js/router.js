@@ -15,10 +15,6 @@ export default function router(path) {
 				scripts.forEach(loadScript);
 			}
     });
-
-		if( path != "/raxid/") 
-			window.history.replaceState({}, "", `/view/${path}.html`);
-
   } else {
     fetchPage({ element: "main", file: "./view/404.html" });
   }
