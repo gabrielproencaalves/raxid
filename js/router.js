@@ -16,7 +16,7 @@ export default function router(path) {
 			}
     });
 
-		if( path != "/") 
+		if( path != "/raxid/") 
 			window.history.replaceState({}, "", `/view/${path}.html`);
 
   } else {
