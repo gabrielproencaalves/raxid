@@ -19,12 +19,13 @@
 			<div class="modal-dialog" id="home">
 				<div class="modal-content shadow">
 					<div class="d-flex flex-column justify-content-center modal-body p-5">
-						<button type="submit" id="btn-register" data-bs-toggle="modal" data-bs-target="#registerToggle" class="btn btn-success mb-2" >Register</button>
-						<button type="submit" id="btn-consult" data-bs-toggle="modal" data-bs-target="#analisticToggle" class="btn btn-info">Consult</button>
+						<button type="submit" id="btn-register" data-bs-toggle="modal" data-bs-target="#registerToggle" class="btn btn-success mb-2" >Registrar</button>
+						<button type="submit" id="btn-consult" data-bs-toggle="modal" data-bs-target="#analisticToggle" class="btn btn-info">Consultar</button>
 					</div>
 				</div>
 			</div>
 		</main>
+
 		<div id='footer' class="w-100">
 			<div class="row junstify-content-center">
 				<div class="col">
@@ -35,33 +36,40 @@
 				</div>
 			</div>
 		</div>
-		<div id="modalRegister">
 
+		<div id="modalRegister">
 			<!-- Modal Register -->
 			<div class="modal fade" id="registerToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			  <div class="modal-dialog modal-fullscreen">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h1 class="modal-title fs-5" id="staticBackdropLabel">Registro de Despesas</h1>
+			        <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrar Despesas</h1>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
 			      <div class="modal-body">
 							<div class="d-flex flex-column justify-content-center p-4">
 								<form id="form-register">
-									<input id="name" type="text" class="form-control mb-5" placeholder="Nome ou apelido"> 	
 									<div class="row g-3 mb-5">
 										<div class="col">
-											<input id="date" type="text" class="form-control" aria-label="Data" placeholder="Data"> 
+											<input id="name" type="text" class="form-control mb-5" placeholder="Nome ou apelido"> 	
 										</div>
 										<div class="col">
-											<input id="value" type="text" placeholder="Valor" class="form-control" aria-label="Valor"> 
+											<input id="travel" type="text" class="form-control mb-5" placeholder="Viagem"> 	
+										</div>
+									</div>
+									<div class="row g-3 mb-5">
+										<div class="col">
+											<input id="date" type="date" class="form-control" aria-label="Data" placeholder="Data"> 
+										</div>
+										<div class="col">
+											<input id="value" type="number" placeholder="Valor" class="form-control" aria-label="Valor"> 
 										</div>
 									</div>
 								</form>
 							</div>
 			      </div>
 			      <div class="modal-footer align-items-center">
-							<button type="button" id="btn-save" class="btn btn-success" data-bs-dismiss="modal">Salvar</button>
+							<button type="button" id="btn-save" class="btn btn-success">Salvar</button>
 			      </div>
 			    </div>
 			  </div>
@@ -86,8 +94,8 @@
 									<thead class="thead-dark">
   								  <tr>
   								    <th scope="col">Viajante</th>
-  								    <th scope="col">A pagar</th>
-  								    <th scope="col">A receber</th>
+  								    <th scope="col">Devendo</th>
+  								    <th scope="col">Recebendo</th>
   								  </tr>
   								</thead>
   								<tbody>
@@ -117,9 +125,9 @@
   										  <tr>
   										    <th scope="col">Viajante</th>
   										    <th scope="col">Gasto</th>
-  										    <th scope="col">Diferenca</th>
-													<th scope="col">A pagar</th>
-  								    		<th scope="col">A receber</th>
+  										    <th scope="col">Diferença</th>
+													<th scope="col">Devendo</th>
+  								    		<th scope="col">Recebendo</th>
   										  </tr>
   										</thead>
   										<tbody>
