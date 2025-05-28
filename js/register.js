@@ -1,3 +1,4 @@
+import {notification} from "./components/toast.js"
 
 export function saveRegister(register){
 	let regiter_finded = searchRegister('book_of_debits')
@@ -9,6 +10,10 @@ export function saveRegister(register){
 
 	register = JSON.parse(regiter_finded).concat(register)
 	localStorage.setItem('book_of_debits',(JSON.stringify(register)));
+
+	notification({
+		title: 'Sistema', body: 'Usuário registrado!.'
+	});
 }
 
 export function searchRegister(value_search){
