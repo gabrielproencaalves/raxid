@@ -19,7 +19,11 @@
 			<div class="modal-dialog" id="home">
 				<div class="modal-content shadow">
 					<div class="d-flex flex-column justify-content-center modal-body p-5">
-						<button type="submit" id="btn-register" data-bs-toggle="modal" data-bs-target="#registerToggle" class="btn btn-success mb-2" >Registrar</button>
+						<button class="btn btn-success mb-2 dropdown-toggle btn-register" type="button" data-bs-toggle="dropdown" aria-expanded="false">Registrar Viagem</button>
+							<ul class="dropdown-menu justify-content-center">
+								<li><a class="dropdown-item" id="load-new-travel-form" data-bs-toggle="modal" data-bs-target="#registerToggle" >Nova</a></li>
+ 							  <li><a class="dropdown-item" id="load-exist-travel-form" data-bs-toggle="modal" data-bs-target="#registerToggle" >Existente</a></li>
+ 							</ul>
 						<button type="submit" id="btn-consult" data-bs-toggle="modal" data-bs-target="#analisticToggle" class="btn btn-info">Consultar</button>
 					</div>
 				</div>
@@ -53,8 +57,7 @@
 										<div class="col">
 											<input id="name" type="text" class="form-control mb-5" placeholder="Nome ou apelido"> 	
 										</div>
-										<div class="col">
-											<input id="travel" type="text" class="form-control mb-5" placeholder="Viagem"> 	
+										<div class="col" id="travel-input">
 										</div>
 									</div>
 									<div class="row g-3 mb-5">
@@ -168,12 +171,12 @@
 		<!-- Modal Register END -->
 		</div>
 
-		<!-- Toast -->
 		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+		<!-- Toast -->
 		  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 		  </div>
-		</div>
 		<!-- end toast -->
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 		<script type="module" src="./js/home.js"></script>

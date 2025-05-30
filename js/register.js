@@ -19,7 +19,6 @@ export function saveRegister(register){
   const travel = Object.keys(register).toString();
 
   if(travels.includes(travel))
-
     register_finded[travel] = register_finded[travel].concat(register[travel])
   else
     register_finded[travel] = register[travel]
@@ -39,7 +38,12 @@ export function saveRegister(register){
 * @return array
 **/
 export function searchRegister(value_search){
-	return localStorage.getItem(value_search)
+	const result = localStorage.getItem(value_search)
+
+	if(result == null)
+		return '{}'
+
+	return result
 }  
 
 

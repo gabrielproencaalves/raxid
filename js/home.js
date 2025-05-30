@@ -1,8 +1,5 @@
 import { inputValidator, saveRegister, searchRegister } from "./register.js"
-
-$(document).ready(function(e){
-	searchRegister()
-});
+import { selectRegister } from "./components/selectRegister.js"
 
 $(document).on('click','#btn-save', function(){
 	const values = getRegiterData();
@@ -19,6 +16,18 @@ $(document).on('click','#btn-save', function(){
 		return
 
 	saveRegister(values)	
+
+	getTravelsForSelect({travels: selectTravels({}), leftRegister : travel});
+});
+
+$(document).on('click','#load-new-travel-form', function(e){
+	e.preventDefault()
+	getTravelsForSelect({leftRegister: true});		
+});
+
+$(document).on('click','#load-exist-travel-form', function(e){
+	e.preventDefault()
+	getTravelsForSelect({travels: selectTravels()});	
 });
 
 /** 
@@ -32,4 +41,14 @@ function getRegiterData(){
 	var travel = $('#travel').val()
 	
 	return  { [ travel] : [{id: Math.random().toString(36), name : name, date: date, value: value  },] }
+}
+
+//Obtém um input select ou text para manipulação das viagens 
+function getTravelsForSelect({travels, leftRegister}){
+	selectRegister({travels : travels, leftRegister: leftRegister});
+}
+
+//Obtém as viagems no localstorage
+function selectTravels(){
+	return Object.keys(JSON.parse(searchRegister('book_of_travels')))
 }

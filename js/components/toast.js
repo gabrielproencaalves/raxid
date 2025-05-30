@@ -4,7 +4,7 @@
 * @param string body
 **/
 export function notification({
-	title, body,status = 'default'
+	title, body, status = 'default'
 } = {}){
 	
 	const notificationStatus = {
@@ -33,6 +33,7 @@ export function notification({
 			close : "btn-close"
 		}	
 	}
+
 	const toast = 
 	`<div class=" ${notificationStatus[status]['background']} toast-header">` +
 	  `<strong class="me-auto ${notificationStatus[status]['title']} ">${title}</strong>` +

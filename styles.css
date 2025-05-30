@@ -53,3 +53,16 @@ a{
  width: 100%;
  text-align: center;
 }
+
+.dropdown-item{
+	color: #000 !important;
+	text-align: center;
+}
+.dropdown-item:hover{
+	background-color: #929496;
+}
+
+.dropdown-menu.show {
+	margin-left: 5% !important;
+	width: 70.5%;
+}
