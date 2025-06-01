@@ -1,12 +1,14 @@
 import { notification } from "./toast.js"
 export function selectRegister({
 	travels = null,
-	leftRegister = false
+	leftRegister = false,
+	input = 'travel-input',
+	id = 'travel'
 } = {}){
 	
-	const inputTravel = document.getElementById('travel-input');
+	const inputTravel = document.getElementById(input);
 
-	if(travels == undefined || travels === null || travels.length == 0){
+	if(travels == undefined || travels === null || travels.length == 0 ){
 
 		if(travels != null && travels.length == 0){
 			notification({
@@ -39,7 +41,7 @@ export function selectRegister({
 	})
 	
 	inputTravel.innerHTML = 
-	'<select id="travel" class="form-select" aria-label="Default select example">' +
+		`<select id="${id}" class="form-select" aria-label="Default select example">` +
 		`${items}`+
 	'</select>'
 }
