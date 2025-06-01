@@ -1,5 +1,5 @@
 /** 
-* Cria um componente visual para notificacao em tela 
+* Componente visual para notificacao em tela 
 * @param string title
 * @param string body
 **/

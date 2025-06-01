@@ -99,6 +99,10 @@ export function inputValidator({name, value, date, travel}){
 		return false
 	}
 
+	/** Envia uma notificação de erro de validação 
+	 * @param string body
+	 * @param string resultTest
+	 * **/
 	function notificationTest(body ,resultTest){
 		if(!resultTest){
 			throw new Error(

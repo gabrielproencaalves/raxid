@@ -1,4 +1,13 @@
 import { notification } from "./toast.js"
+
+/** Componente do tipo select 
+* @param array travels
+* @param bool leftRegister
+* @param string input
+* @param string id 
+* @return null
+**/
+	
 export function selectRegister({
 	travels = null,
 	leftRegister = false,

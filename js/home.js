@@ -1,6 +1,12 @@
 import { inputValidator, saveRegister, searchRegister } from "./register.js"
 import { selectRegister } from "./components/selectRegister.js"
 
+// ###### Registro ##########
+
+/**
+* Executa as operações de validação e persitência e 
+* atualização do input de text para select. 
+**/
 $(document).on('click','#btn-save', function(){
 	const values = getRegiterData();
 	const travel = Object.keys(values).toString()
@@ -20,6 +26,7 @@ $(document).on('click','#btn-save', function(){
 	getTravelsForSelect({travels: selectTravels({}), leftRegister : travel});
 });
 
+/**Formata o texto no input #value em tempo real para R$. **/
 $('#value').on('input', function() {	
 	let input = $(this);
 	let data = input.val().replace(/\D+/g, '');
@@ -30,11 +37,13 @@ $('#value').on('input', function() {
 	);
 });
 
+/**Carrega o input texto para registro de nova viagem. **/
 $(document).on('click','#load-new-travel-form', function(e){
 	e.preventDefault()
 	getTravelsForSelect({leftRegister: true});		
 });
 
+/** Carrega o element selelect para registro de viagem pré existente. **/
 $(document).on('click','#load-exist-travel-form', function(e){
 	e.preventDefault()
 	getTravelsForSelect({travels: selectTravels()});	
@@ -53,6 +62,10 @@ function getRegiterData(){
 	return  { [ travel] : [{id: Math.random().toString(36), name : name, date: date, value: value  },] }
 }
 
+// ======= END Registro =======
+
+// ======= Functions ===========
+
 //Obtém um input select ou text para manipulação das viagens 
 function getTravelsForSelect({travels, leftRegister}){
 	selectRegister({travels : travels, leftRegister: leftRegister});
@@ -62,3 +75,5 @@ function getTravelsForSelect({travels, leftRegister}){
 function selectTravels(){
 	return Object.keys(JSON.parse(searchRegister('book_of_travels')))
 }
+
+// ======= END Functions ===========
