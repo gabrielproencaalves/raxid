@@ -20,6 +20,16 @@ $(document).on('click','#btn-save', function(){
 	getTravelsForSelect({travels: selectTravels({}), leftRegister : travel});
 });
 
+$('#value').on('input', function() {	
+	let input = $(this);
+	let data = input.val().replace(/\D+/g, '');
+  if (data.length > 14) data = data.slice(0, 14);
+  input.val(
+    data.replace(/(\d)(\d\d)$/, "$1,$2")
+     .replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:,|$))/g, '$1.')
+	);
+});
+
 $(document).on('click','#load-new-travel-form', function(e){
 	e.preventDefault()
 	getTravelsForSelect({leftRegister: true});		
@@ -37,7 +47,7 @@ $(document).on('click','#load-exist-travel-form', function(e){
 function getRegiterData(){
 	var name =$('#name').val()
 	var date = $('#date').val()
-	var value = $('#value').val()
+	var value = $('#value').val().replace(/[^0-9]/g, '')
 	var travel = $('#travel').val()
 	
 	return  { [ travel] : [{id: Math.random().toString(36), name : name, date: date, value: value  },] }

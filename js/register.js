@@ -90,7 +90,6 @@ export function inputValidator({name, value, date, travel}){
 			regexNumberAndSpecifSymbol.test(value)
 		)
 
-		console.log(travel)
 		notificationTest(
 			"Nome da viagem contém caracteres inválidos.",
 			onlyNumberAndLattersAndSpecificSymbols.test(travel)
