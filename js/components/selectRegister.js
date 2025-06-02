@@ -47,6 +47,12 @@ export function selectRegister({
 		}
 
 		items += `<option value="${i.trim()}">${i}</option>`
+
+		if (index === arr.length - 1 && leftRegister == false) {
+			items += `<option selected value="default">Selecione</option>`
+			return
+		}
+
 	})
 	
 	inputTravel.innerHTML = 

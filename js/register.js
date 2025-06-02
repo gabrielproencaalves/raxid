@@ -5,11 +5,12 @@ import {notification} from "./components/toast.js"
 * @param array register
 * @return void
 **/
+const db = 'book_of_travels';
 export function saveRegister(register){
-  let register_finded = searchRegister('book_of_travels')
+  let register_finded = searchRegister()
 
   if( register_finded === null || register_finded == []){  
-    localStorage.setItem('book_of_travels',JSON.stringify(register));
+    localStorage.setItem(db ,JSON.stringify(register));
     return 
   }
   
@@ -23,7 +24,7 @@ export function saveRegister(register){
   else
     register_finded[travel] = register[travel]
 
-  localStorage.setItem('book_of_travels',JSON.stringify(register_finded));
+  localStorage.setItem(db ,JSON.stringify(register_finded));
 
 	notification({
 		title: 'Sistema',
@@ -37,7 +38,7 @@ export function saveRegister(register){
 * @param string value_search
 * @return array
 **/
-export function searchRegister(value_search){
+export function searchRegister(value_search = db){
 	const result = localStorage.getItem(value_search)
 
 	if(result == null)

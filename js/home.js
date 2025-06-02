@@ -1,5 +1,6 @@
 import { inputValidator, saveRegister, searchRegister } from "./register.js"
 import { selectRegister } from "./components/selectRegister.js"
+import { generateTable, initAnalistic } from "./analistic.js";
 
 // ###### Registro ##########
 
@@ -64,16 +65,28 @@ function getRegiterData(){
 
 // ======= END Registro =======
 
+// ======= Consulta ============ 
+$(document).on('click','#btn-consult', function(e){
+	e.preventDefault()
+	initAnalistic(selectTravels())
+})
+
+$(document).on('change','#analistic-travel', function(e){
+	if($(this).val() == 'default') return 
+	generateTable($(this).val())	
+})
+// ======= END Consulta =========
+
 // ======= Functions ===========
 
 //Obtém um input select ou text para manipulação das viagens 
-function getTravelsForSelect({travels, leftRegister}){
-	selectRegister({travels : travels, leftRegister: leftRegister});
+function getTravelsForSelect({travels, leftRegister, input}){
+	selectRegister({travels : travels, leftRegister: leftRegister, input: input});
 }
 
 //Obtém as viagems no localstorage
 function selectTravels(){
-	return Object.keys(JSON.parse(searchRegister('book_of_travels')))
+	return Object.keys(JSON.parse(searchRegister()))
 }
 
 // ======= END Functions ===========
