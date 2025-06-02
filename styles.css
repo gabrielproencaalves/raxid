@@ -2,9 +2,11 @@ body {
 	width: 100% !important;
 	background-color: #42484f !important;
 }
+
 main body html{
 	overflow-y: hidden;
 }
+
 h2{
 	color: #000000 !important;
 	font-size: 32pt !important;
@@ -26,12 +28,21 @@ html {
 
 table {
 	margin-bottom: 0px !important;
+	margin-top: 0px !important;
 }
 
 .modal-content{	
 	background-color: #363837 !important;
 }
 
+#collapse-complete{
+	display: none;
+}
+
+#title-collapse{
+	margin-top: 7px;
+	color: #fff;
+}
 a{
 	color: #929496 !important;
 }
@@ -66,3 +77,9 @@ a{
 	margin-left: 5% !important;
 	width: 70.5%;
 }
+@media screen and (max-width: 500px) {
+	.media{
+		display:none;
+	}
+}
+

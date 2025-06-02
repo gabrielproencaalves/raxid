@@ -2,6 +2,8 @@ import { inputValidator, saveRegister, searchRegister } from "./register.js"
 import { selectRegister } from "./components/selectRegister.js"
 import { generateTable, initAnalistic } from "./analistic.js";
 
+const mediaQuery = window.matchMedia('(max-width: 500px)')
+
 // ###### Registro ##########
 
 /**
@@ -74,6 +76,14 @@ $(document).on('click','#btn-consult', function(e){
 $(document).on('change','#analistic-travel', function(e){
 	if($(this).val() == 'default') return 
 	generateTable($(this).val())	
+	$('#collapse-simple').css({"display":"block"})
+})
+
+$(document).on('click','#btn-complete-analistic', function(e){
+	$('#collapse-complete').css({"display":"block"});
+
+	mediaQuery.addEventListener('change', handleTabletChange)
+	handleTabletChange(mediaQuery)
 })
 // ======= END Consulta =========
 
@@ -89,4 +99,26 @@ function selectTravels(){
 	return Object.keys(JSON.parse(searchRegister()))
 }
 
+function handleTabletChange(e) {
+	var element = document.getElementById('media-debits')
+
+  if (e.matches) {
+			console.log(element)
+		if(element === null){
+			var td = document.getElementsByClassName('media')[1];	
+
+			var collapse = document.getElementById('collapse-complete')
+
+			var child = document.createElement('p');
+			child.innerHTML =  '<p id="media-debits" class="text-light mt-2" >Media do gasto: <a class="text-danger"><b>' + td.innerHTML +'</b> </a></p>'
+			
+			collapse.appendChild(child)
+		}
+		return
+  }
+	
+	if(element != null)
+		element.remove();
+
+}
 // ======= END Functions ===========

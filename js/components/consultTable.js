@@ -18,7 +18,7 @@ export function consultTable({
 	var owes = '';
 	var reciver = '';
 
-	var media = `<td>${ records['media']}</td>`;
+	var media = `<td class="media">${ records['media']}</td>`;
 	//console.log(records['expenses'][0].hasOwnProperty('reciver'))
 
 	for(var interable = 0; interable < records['expenses'].length; interable++){
@@ -73,7 +73,7 @@ export function consultTable({
 		`<thead class="thead-dark">`+
   	`  <tr>`+
   	`    <th scope="col">Viajante</th>`+
-  	`    <th scope="col">Média</th>`+
+  	`    <th scope="col" class="media">Média</th>`+
   	`    <th scope="col">Gasto</th>`+
 		`		 <th scope="col">Devendo</th>`+
   	`		<th scope="col">Recebendo</th>`+

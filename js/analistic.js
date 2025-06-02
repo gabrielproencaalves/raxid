@@ -4,13 +4,9 @@ import { notification } from "./components/toast.js";
 import { searchRegister } from "./register.js";
 
 export function initAnalistic(travels){
-
-	const simpleAnalistic = document.getElementById('simpleAnalistic')
-	const completeAnalistic = document.getElementById('completeAnalistic')
-
-	simpleAnalistic.innerHTML = ""
-	completeAnalistic.innerHTML = ""
 	
+	cleanWindowAnalistic()
+
 	if(travels != null && travels.length == 0)
 	{
 		notification({
@@ -26,6 +22,7 @@ export function initAnalistic(travels){
 		return 
 	}
 
+	$('#collapse-simple').css({"display":"none"})
 	selectRegister({travels: travels, input : 'consult-travels', id: 'analistic-travel'});	
 }
 
@@ -91,3 +88,17 @@ function calcValues(travel){
 }
 
 function exportToOds(){}
+
+function cleanWindowAnalistic(){
+	const simpleAnalistic = document.getElementById('simpleAnalistic')
+	const completeAnalistic = document.getElementById('completeAnalistic')
+
+	simpleAnalistic.innerHTML = ""
+	completeAnalistic.innerHTML = ""
+	
+	var element = document.getElementById('media-debits')
+	if(element != null)
+		element.remove();
+
+	$("#collapse-complete").css({'display':'none'})
+}
