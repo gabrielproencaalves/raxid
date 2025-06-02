@@ -1,6 +1,6 @@
 import {notification} from "./components/toast.js"
 
-/** 
+/**
 * Sava um novo registro
 * @param array register
 * @return void
@@ -9,11 +9,11 @@ const db = 'book_of_travels';
 export function saveRegister(register){
   let register_finded = searchRegister()
 
-  if( register_finded === null || register_finded == []){  
+  if( register_finded === null || register_finded == []){
     localStorage.setItem(db ,JSON.stringify(register));
-    return 
+    return
   }
-  
+
   register_finded = JSON.parse(register_finded);
 
   const travels = Object.keys(register_finded)
@@ -45,15 +45,15 @@ export function searchRegister(value_search = db){
 		return '{}'
 
 	return result
-}  
+}
 
 
-/** 
-* Deleta registros 
+/**
+* Deleta registros
 * @param string id
 **/
 export function deleteRegister(id){
-	
+
 }
 
 /** Exporta um viagem para ods **/
@@ -61,10 +61,10 @@ export function exportRegister(){}
 
 
 /**
- * Valida todos os campos de registro de despesas 
+ * Valida todos os campos de registro de despesas
  * @param string name
  * @param string value
- * @param string date 
+ * @param string date
  * @param string travel
  * @return bool|void
  * **/
@@ -100,7 +100,7 @@ export function inputValidator({name, value, date, travel}){
 		return false
 	}
 
-	/** Envia uma notificação de erro de validação 
+	/** Envia uma notificação de erro de validação
 	 * @param string body
 	 * @param string resultTest
 	 * **/
@@ -108,10 +108,10 @@ export function inputValidator({name, value, date, travel}){
 		if(!resultTest){
 			throw new Error(
 				notification({
-					title: "Sistema",
+					ptitle: "Sistema",
 					body: body,
 					status: "warning"
-				})		
+				})
 			)
 		}
 	}
