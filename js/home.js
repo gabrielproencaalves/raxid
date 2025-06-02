@@ -35,8 +35,8 @@ $('#value').on('input', function() {
 	let data = input.val().replace(/\D+/g, '');
   if (data.length > 14) data = data.slice(0, 14);
   input.val(
-    data.replace(/(\d)(\d\d)$/, "$1,$2")
-     .replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:,|$))/g, '$1.')
+    // data.replace(/(\d)(\d\d)$/, "$1,$2")
+    data.replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:,|$))/g, '$1.')
 	);
 });
 
