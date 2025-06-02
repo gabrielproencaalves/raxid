@@ -42,13 +42,13 @@ function calcValues(travel){
 		var name = records[interable]['name'];
 
 		if(value != null){
-			values.push(parseInt(value))
+			values.push(parseInt(value) * 100)
 			names.push(name)
 			amountValues += parseInt(value)
 		}
 	}
 
-	const media = (amountValues / values.length)
+	const media = (amountValues / values.length) * 100
 	var expenses = [];
 	var expense = 0 ;	
 
