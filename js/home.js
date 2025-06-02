@@ -7,8 +7,8 @@ const mediaQuery = window.matchMedia('(max-width: 500px)')
 // ###### Registro ##########
 
 /**
-* Executa as operações de validação e persitência e 
-* atualização do input de text para select. 
+* Executa as operações de validação e persitência e
+* atualização do input de text para select.
 **/
 $(document).on('click','#btn-save', function(){
 	const values = getRegiterData();
@@ -17,20 +17,20 @@ $(document).on('click','#btn-save', function(){
 	const pipeValid = inputValidator({
 		name: values[travel][0]['name'],
 		value: values[travel][0]['value'],
-		date: values[travel][0]['date'], 
+		date: values[travel][0]['date'],
 		travel: travel
 	});
 
 	if(pipeValid === false)
 		return
 
-	saveRegister(values)	
+	saveRegister(values)
 
 	getTravelsForSelect({travels: selectTravels({}), leftRegister : travel});
 });
 
 /**Formata o texto no input #value em tempo real para R$. **/
-$('#value').on('input', function() {	
+$('#value').on('input', function() {
 	let input = $(this);
 	let data = input.val().replace(/\D+/g, '');
   if (data.length > 14) data = data.slice(0, 14);
@@ -43,16 +43,16 @@ $('#value').on('input', function() {
 /**Carrega o input texto para registro de nova viagem. **/
 $(document).on('click','#load-new-travel-form', function(e){
 	e.preventDefault()
-	getTravelsForSelect({leftRegister: true});		
+	getTravelsForSelect({leftRegister: true});
 });
 
 /** Carrega o element selelect para registro de viagem pré existente. **/
 $(document).on('click','#load-exist-travel-form', function(e){
 	e.preventDefault()
-	getTravelsForSelect({travels: selectTravels()});	
+	getTravelsForSelect({travels: selectTravels()});
 });
 
-/** 
+/**
 * Cria o objeto a partir dos dados inseridos no form
 * @return array
 **/
@@ -61,21 +61,21 @@ function getRegiterData(){
 	var date = $('#date').val()
 	var value = $('#value').val().replace(/[^0-9]/g, '')
 	var travel = $('#travel').val()
-	
+
 	return  { [ travel] : [{id: Math.random().toString(36), name : name, date: date, value: value  },] }
 }
 
 // ======= END Registro =======
 
-// ======= Consulta ============ 
+// ======= Consulta ============
 $(document).on('click','#btn-consult', function(e){
 	e.preventDefault()
 	initAnalistic(selectTravels())
 })
 
 $(document).on('change','#analistic-travel', function(e){
-	if($(this).val() == 'default') return 
-	generateTable($(this).val())	
+	if($(this).val() == 'default') return
+	generateTable($(this).val())
 	$('#collapse-simple').css({"display":"block"})
 })
 
@@ -89,7 +89,7 @@ $(document).on('click','#btn-complete-analistic', function(e){
 
 // ======= Functions ===========
 
-//Obtém um input select ou text para manipulação das viagens 
+//Obtém um input select ou text para manipulação das viagens
 function getTravelsForSelect({travels, leftRegister, input}){
 	selectRegister({travels : travels, leftRegister: leftRegister, input: input});
 }
@@ -105,18 +105,18 @@ function handleTabletChange(e) {
   if (e.matches) {
 			console.log(element)
 		if(element === null){
-			var td = document.getElementsByClassName('media')[1];	
+			var td = document.getElementsByClassName('media')[1];
 
 			var collapse = document.getElementById('collapse-complete')
 
 			var child = document.createElement('p');
 			child.innerHTML =  '<p id="media-debits" class="text-light mt-2" >Media do gasto: <a class="text-danger"><b>' + td.innerHTML +'</b> </a></p>'
-			
+
 			collapse.appendChild(child)
 		}
 		return
   }
-	
+
 	if(element != null)
 		element.remove();
 
