@@ -108,7 +108,7 @@ export function inputValidator({name, value, date, travel}){
 		if(!resultTest){
 			throw new Error(
 				notification({
-					ptitle: "Sistema",
+					title: "Sistema",
 					body: body,
 					status: "warning"
 				})
