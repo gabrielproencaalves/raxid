@@ -32,7 +32,7 @@ $(document).on('click','#btn-save', function(){
 /**Formata o texto no input #value em tempo real para R$. **/
 $('#value').on('input', function() {
 	let input = $(this);
-	let data = input.val().replace(/\D+/g, '');
+	let data = input.val().replace(/[^\d,]+/g, '');
   if (data.length > 14) data = data.slice(0, 14);
   input.val(
     // data.replace(/(\d)(\d\d)$/, "$1,$2")
