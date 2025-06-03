@@ -1,20 +1,20 @@
 import { notification } from "./toast.js"
 
-/** Componente do tipo select 
+/** Componente do tipo select
 * @param array travels
 * @param bool leftRegister
 * @param string input
-* @param string id 
+* @param string id
 * @return null
 **/
-	
+
 export function selectRegister({
 	travels = null,
 	leftRegister = false,
 	input = 'travel-input',
 	id = 'travel'
 } = {}){
-	
+
 	const inputTravel = document.getElementById(input);
 
 	if(travels == undefined || travels === null || travels.length == 0 ){
@@ -54,8 +54,8 @@ export function selectRegister({
 		}
 
 	})
-	
-	inputTravel.innerHTML = 
+
+	inputTravel.innerHTML =
 		`<select id="${id}" class="form-select" aria-label="Default select example">` +
 		`${items}`+
 	'</select>'

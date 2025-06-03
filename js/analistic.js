@@ -4,7 +4,7 @@ import { notification } from "./components/toast.js";
 import { searchRegister } from "./register.js";
 
 export function initAnalistic(travels){
-	
+
 	cleanWindowAnalistic()
 
 	if(travels != null && travels.length == 0)
@@ -14,20 +14,20 @@ export function initAnalistic(travels){
 			body: "<b>Nenhum registro encontrado</b>",
 			status : "error"
 		});
-		return 
+		return
 	}
 
 	if(travels != null && travels.length == 1){
-		consultTable({records: calcValues(travels)})		
-		return 
+		consultTable({records: calcValues(travels)})
+		return
 	}
 
 	$('#collapse-simple').css({"display":"none"})
-	selectRegister({travels: travels, input : 'consult-travels', id: 'analistic-travel'});	
+	selectRegister({travels: travels, input : 'consult-travels', id: 'analistic-travel'});
 }
 
 export function generateTable(travel){
-	consultTable({records: calcValues(travel)})		
+	consultTable({records: calcValues(travel)})
 }
 
 function calcValues(travel){
@@ -50,12 +50,12 @@ function calcValues(travel){
 
 	const media = (amountValues / values.length)
 	var expenses = [];
-	var expense = 0 ;	
+	var expense = 0 ;
 
 	//console.log(`MEDIA ${(media / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }`)
 
 	values.forEach(i =>{
-		var debit = 0; 
+		var debit = 0;
 		if(i < media){
 			debit = ((media - i) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 			expense = ({['owes'] : [{ debit }] } );
@@ -63,7 +63,7 @@ function calcValues(travel){
 			//console.log(` Gasto ${i / 100} ; ${JSON.stringify(expense).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} `)
 			return
 		}
-		
+
 		if(i > media){
 			debit = ((i - media) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 			expense = ({['receive'] : [{ debit }] } ) ;
@@ -74,14 +74,14 @@ function calcValues(travel){
 	})
 
 	return {
-		"names" : names, 
+		"names" : names,
 		"expenses" : expenses,
-		"values": values, 
+		"values": values,
 		"media" : (media / 100).toLocaleString(
 															'pt-BR',
-															{ 
-																style: 'currency', 
-																currency: 'BRL' 
+															{
+																style: 'currency',
+																currency: 'BRL'
 															}
 														)
 	};
@@ -95,7 +95,7 @@ function cleanWindowAnalistic(){
 
 	simpleAnalistic.innerHTML = ""
 	completeAnalistic.innerHTML = ""
-	
+
 	var element = document.getElementById('media-debits')
 	if(element != null)
 		element.remove();

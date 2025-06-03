@@ -17,7 +17,7 @@ export function consultTable({
 		notification({
 			title: "Sistema",
 			body: "Todos os pagantes já estão quites",
-			status: "sucess"
+			status: "success"
 		});
 		return
 	}
@@ -36,7 +36,7 @@ export function consultTable({
 			owes = `<td class="text-danger" >${records['expenses'][interable]['owes'][0]['debit']}</td>`;
 			//reciver = `<td>R$ 0</td>`;
 			reciver = `<td> </td>`;
-		}	
+		}
 
 		if(records['expenses'][interable].hasOwnProperty('receive')){
 			reciver = `<td class="text-success">${records['expenses'][interable]['receive'][0]['debit']}</td>`
@@ -45,16 +45,16 @@ export function consultTable({
 		}
 
 		var name = `<td>${records['names'][interable].trim()}</td>`;
-		var debit = `<td>${(records['values'][interable]/ 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>`	
+		var debit = `<td>${(records['values'][interable]/ 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>`
 
 		bodySimpleAnalistic +=
 			`<tr>`	+
 				`${name}` +
 				`${owes}`+
 				`${reciver}`+
-			`</tr>` 
+			`</tr>`
 		;
-	
+
 		bodyCompleteAnalistic +=
 			`<tr>`	+
 				`${name}` +
@@ -62,23 +62,23 @@ export function consultTable({
 				`${debit}` +
 				`${owes}`+
 				`${reciver}`+
-			`</tr>` 
+			`</tr>`
 		;
-	}	
+	}
 
-	const tableSimpleAnalistic = 
+	const tableSimpleAnalistic =
 	`	<thead class="thead-dark">									`+
 	` 	  <tr>																		`+
 	` 	    <th scope="col">Viajante</th>					`+
-	` 	    <th scope="col">Devendo</th>        	`+ 
-	` 	    <th scope="col">Recebendo</th>      	`+ 
-	` 	  </tr>																		`+             
-	` 	</thead>																	`+	 
-	` 	<tbody>																	  `+	 
-	`			${bodySimpleAnalistic}                  `+    
+	` 	    <th scope="col">Devendo</th>        	`+
+	` 	    <th scope="col">Recebendo</th>      	`+
+	` 	  </tr>																		`+
+	` 	</thead>																	`+
+	` 	<tbody>																	  `+
+	`			${bodySimpleAnalistic}                  `+
 	` 	</tbody>																	`;
 
-	const tableCompleteAnalistic = 
+	const tableCompleteAnalistic =
 		`<thead class="thead-dark">`+
   	`  <tr>`+
   	`    <th scope="col">Viajante</th>`+
@@ -97,4 +97,4 @@ export function consultTable({
 
 	const completeAnalistic = document.getElementById('completeAnalistic')
 	completeAnalistic.innerHTML = tableCompleteAnalistic
-}	
+}
