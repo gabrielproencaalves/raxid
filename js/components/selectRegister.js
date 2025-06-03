@@ -28,7 +28,7 @@ export function selectRegister({
 			leftRegister = true
 		}
 
-		inputTravel.innerHTML = '<input id="travel" type="text" class="form-control mb-5" placeholder="Viagem">'
+		inputTravel.innerHTML = '<input id="travel" type="text" class="form-control mb-5" placeholder="Nome do rateio">'
 		return
 	}
 
