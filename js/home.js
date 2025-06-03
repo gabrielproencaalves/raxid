@@ -36,7 +36,7 @@ $('#value').on('input', function() {
   if (data.length > 14) data = data.slice(0, 14);
 
   data = data.split(',');
-  if (data[1]) data[1] = data.slice(0, 2);
+  if (data[1]) data[1] = data[1].slice(0, 2);
   data = data.join(',');
 
   input.val(
