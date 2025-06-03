@@ -64,7 +64,7 @@ $(document).on('click','#load-exist-travel-form', function(e){
 function getRegiterData(){
 	var name =$('#name').val()
 	var date = $('#date').val()
-	var value = $('#value').val().replace(/[^0-9]/g, '')
+	var value = $('#value').val().replace(/[^0-9,]/g, '').replace(/,/g, '.')
 	var travel = $('#travel').val()
 
 	return  { [ travel] : [{id: Math.random().toString(36), name : name, date: date, value: value  },] }
