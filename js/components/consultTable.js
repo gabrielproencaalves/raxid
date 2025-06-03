@@ -16,7 +16,7 @@ export function consultTable({
 	if (records['expenses'].length == 0){
 		notification({
 			title: "Sistema",
-			body: "Todos os pagantes já estão quites",
+			body: "Todos os pagantes deste rateio já estão quites",
 			status: "success"
 		});
 		return
