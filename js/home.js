@@ -34,6 +34,11 @@ $('#value').on('input', function() {
 	let input = $(this);
 	let data = input.val().replace(/[^\d,]+/g, '');
   if (data.length > 14) data = data.slice(0, 14);
+
+  data = data.split(',');
+  if (data[1]) data[1] = data.slice(0, 2);
+  data = data.join(',');
+
   input.val(
     // data.replace(/(\d)(\d\d)$/, "$1,$2")
     data.replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:,|$))/g, '$1.')
