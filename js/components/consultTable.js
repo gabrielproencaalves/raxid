@@ -13,6 +13,15 @@ export function consultTable({
 		return
 	}
 
+	if (records['expenses'].length == 0){
+		notification({
+			title: "Sistema",
+			body: "Todos os pagantes já estão quites",
+			status: "sucess"
+		});
+		return
+	}
+
 	var bodySimpleAnalistic = '';
 	var bodyCompleteAnalistic = '';
 	var owes = '';
