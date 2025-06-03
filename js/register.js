@@ -70,7 +70,7 @@ export function exportRegister(){}
  * **/
 export function inputValidator({name, value, date, travel}){
 
-	let onlyNumberAndLattersAndSpecificSymbols = /^[a-zA-Z0-9 ]{2,}$/;
+	let onlyNumberAndLattersAndSpecificSymbols = /^[a-zA-ZÀ-ú0-9 ]{2,}$/;
 	let regexDate = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 	let regexNumberAndSpecifSymbol = /^[0-9,.]*$/;
 
